@@ -1,0 +1,276 @@
+CREATE SCHEMA sptrans;
+
+
+----------------------------------------------------------------------------------------------------------------------
+-- Tabela sptrans.media_onibus_por_linha
+-- Descricao: tabela com a media horaria de onibus por linha referente a uma data/hora
+-- 
+-- Tabela sptrans.media_onibus_por_linha_stage
+-- Descricao: tabela auxiliar, utilizada pelos programas Python para realizar upsert das linhas na
+--            tabela sptrans.media_onibus_por_linha
+
+CREATE TABLE sptrans.media_onibus_por_linha(
+	data_ref text NOT NULL,
+	hora_id_ref text NOT NULL,
+	id_linha int8 NOT NULL,
+	sentido_linha int8 NULL,
+	let_cod_linha text NULL,
+	let_destino text NULL,
+	let_origem text NULL,
+	qtde_onibus int8 NULL
+);
+
+ALTER TABLE sptrans.media_onibus_por_linha ADD CONSTRAINT media_onibus_por_linha_pk PRIMARY KEY (data_ref, hora_id_ref, id_linha);
+
+CREATE TABLE sptrans.media_onibus_por_linha_stage(
+	data_ref text NOT NULL,
+	hora_id_ref text NOT NULL,
+	id_linha int8 NOT NULL,
+	sentido_linha int8 NULL,
+	let_cod_linha text NULL,
+	let_destino text NULL,
+	let_origem text NULL,
+	qtde_onibus int8 NULL
+);
+
+----------------------------------------------------------------------------------------------------------------------
+-- Tabela sptrans.media_onibus_geral
+-- Descricao: tabela com a media horaria geral de onibus circulando em uma data/hora
+-- 
+-- Tabela sptrans.media_onibus_geral_stage
+-- Descricao: tabela auxiliar, utilizada pelos programas Python para realizar upsert das linhas na
+--            tabela sptrans.media_onibus_geral
+
+CREATE TABLE sptrans.media_onibus_geral(
+	data_ref text NOT NULL,
+	hora_id_ref text NOT NULL,
+	qtde_onibus int8 NULL
+);
+
+ALTER TABLE sptrans.media_onibus_geral ADD CONSTRAINT media_onibus_geral_pk PRIMARY KEY (data_ref, hora_id_ref);
+
+CREATE TABLE sptrans.media_onibus_geral_stage(
+	data_ref text NOT NULL,
+	hora_id_ref text NOT NULL,
+	qtde_onibus int8 NULL
+);
+
+----------------------------------------------------------------------------------------------------------------------
+-- Tabela sptrans.total_onibus_por_linha
+-- Descricao: tabela com o total de onibus por linha circulando na data/hora em que foi obtida as informacoes atraves 
+--            da  API Posicao
+-- 
+-- Tabela sptrans.total_onibus_por_linha_stage
+-- Descricao: tabela auxiliar, utilizada pelos programas Python para realizar upsert das linhas na
+--            tabela sptrans.total_onibus_por_linha
+
+CREATE TABLE sptrans.total_onibus_por_linha(
+	data_ref text NOT NULL,
+	hora_ref text NOT NULL,
+	id_linha int8 NOT NULL,
+	sentido_linha int8 NULL,
+	let_cod_linha text NULL,
+	let_destino text NULL,
+	let_origem text NULL,
+	qtde_onibus int8 NULL
+);
+
+ALTER TABLE sptrans.total_onibus_por_linha ADD CONSTRAINT total_onibus_por_linha_pk PRIMARY KEY (data_ref, hora_ref, id_linha);
+
+CREATE TABLE sptrans.total_onibus_por_linha_stage(
+	data_ref text NOT NULL,
+	hora_ref text NOT NULL,
+	id_linha int8 NOT NULL,
+	sentido_linha int8 NULL,
+	let_cod_linha text NULL,
+	let_destino text NULL,
+	let_origem text NULL,
+	qtde_onibus int8 NULL
+);
+
+----------------------------------------------------------------------------------------------------------------------
+-- Tabela sptrans.total_onibus_geral
+-- Descricao: tabela com o total de onibus circulando na data/hora em que foi obtida as informacoes atraves 
+--            da  API Posicao
+-- 
+-- Tabela sptrans.total_onibus_geral_stage
+-- Descricao: tabela auxiliar, utilizada pelos programas Python para realizar upsert das linhas na
+--            tabela sptrans.total_onibus_geral
+
+CREATE TABLE sptrans.total_onibus_geral(
+	data_ref text NOT NULL,
+	hora_ref text NOT NULL,
+	qtde_onibus int8 NULL
+);
+
+ALTER TABLE sptrans.total_onibus_geral ADD CONSTRAINT total_onibus_geral_pk PRIMARY KEY (data_ref, hora_ref);
+
+CREATE TABLE sptrans.total_onibus_geral_stage(
+	data_ref text NOT NULL,
+	hora_ref text NOT NULL,
+	qtde_onibus int8 NULL
+);
+
+----------------------------------------------------------------------------------------------------------------------
+-- Tabela sptrans.total_onibus_geral
+-- Descricao: tabela com o total de onibus circulando na data/hora em que foi obtida as informacoes atraves 
+--            da  API Posicao
+-- 
+-- Tabela sptrans.total_onibus_geral_stage
+-- Descricao: tabela auxiliar, utilizada pelos programas Python para realizar upsert das linhas na
+--            tabela sptrans.total_onibus_geral
+
+CREATE TABLE sptrans.baseline_media_onibus_por_linha(
+	data_ref text NOT NULL,
+	hora_id_ref text NOT NULL,
+	id_linha int8 NOT NULL,
+	sentido_linha int8 NULL,
+	let_cod_linha text NULL,
+	let_destino text NULL,
+	let_origem text NULL,
+	qtde_onibus int8 NULL
+);
+
+
+ALTER TABLE sptrans.baseline_media_onibus_por_linha ADD CONSTRAINT baseline_media_onibus_por_linha_pk PRIMARY KEY (data_ref, hora_id_ref, id_linha);
+
+----------------------------------------------------------------------------------------------------------------------
+-- Tabela sptrans.linhas_atingida_meta
+-- Descricao: tabela com a lista das linhas de onibus que atingiram a meta da media de quantidade de onibus circulando 
+--            em uma data/hora.
+-- 
+-- Tabela sptrans.linhas_atingida_meta_stage
+-- Descricao: tabela auxiliar, utilizada pelos programas Python para realizar upsert das linhas na
+--            tabela sptrans.linhas_atingida_meta
+
+CREATE TABLE sptrans.linhas_atingida_meta(
+	data_ref text NOT NULL,
+	hora_id_ref text NOT NULL,
+	id_linha int8 NOT NULL,
+	sentido_linha int8 NULL,
+	let_cod_linha text NULL,
+	let_destino text NULL,
+	let_origem text NULL,
+	meta_qtde_onibus int8 NULL,
+	avg_qtde_onibus int8 NULL
+);
+
+ALTER TABLE sptrans.linhas_atingida_meta ADD CONSTRAINT linhas_atingida_meta_pk PRIMARY KEY (data_ref, hora_id_ref, id_linha);
+
+CREATE TABLE sptrans.linhas_atingida_meta_stage(
+	data_ref text NOT NULL,
+	hora_id_ref text NOT NULL,
+	id_linha int8 NOT NULL,
+	sentido_linha int8 NULL,
+	let_cod_linha text NULL,
+	let_destino text NULL,
+	let_origem text NULL,
+	meta_qtde_onibus int8 NULL,
+	avg_qtde_onibus int8 NULL
+);
+
+----------------------------------------------------------------------------------------------------------------------
+-- Tabela sptrans.total_linhas_atingida_meta
+-- Descricao: tabela com o total de linhas de onibus que atingiram a meta da media de quantidade de onibus circulando 
+--            em uma data/hora.
+-- 
+-- Tabela sptrans.total_linhas_atingida_meta_stage
+-- Descricao: tabela auxiliar, utilizada pelos programas Python para realizar upsert das linhas na
+--            tabela sptrans.total_linhas_atingida_meta
+
+CREATE TABLE sptrans.total_linhas_atingida_meta(
+	data_ref text NOT NULL,
+	hora_id_ref text NOT NULL,
+	qtde_linhas int8 NULL
+);
+
+ALTER TABLE sptrans.total_linhas_atingida_meta ADD CONSTRAINT total_linhas_atingida_meta_pk PRIMARY KEY (data_ref, hora_id_ref);
+
+CREATE TABLE sptrans.total_linhas_atingida_meta_stage(
+	data_ref text NOT NULL,
+	hora_id_ref text NOT NULL,
+	qtde_linhas int8 NULL
+);
+
+----------------------------------------------------------------------------------------------------------------------
+-- Tabela sptrans.linhas_abaixo_meta
+-- Descricao: tabela com a lista das linhas de onibus que ficaram abaixo da meta da media de quantidade de onibus circulando 
+--            em uma data/hora.
+-- 
+-- Tabela sptrans.linhas_abaixo_meta_stage
+-- Descricao: tabela auxiliar, utilizada pelos programas Python para realizar upsert das linhas na
+--            tabela sptrans.linhas_abaixo_meta
+
+
+CREATE TABLE sptrans.linhas_abaixo_meta(
+	data_ref text NOT NULL,
+	hora_id_ref text NOT NULL,
+	id_linha int8 NOT NULL,
+	sentido_linha int8 NULL,
+	let_cod_linha text NULL,
+	let_destino text NULL,
+	let_origem text NULL,
+	meta_qtde_onibus int8 NULL,
+	avg_qtde_onibus int8 NULL
+);
+
+ALTER TABLE sptrans.linhas_abaixo_meta ADD CONSTRAINT linhas_abaixo_meta_pk PRIMARY KEY (data_ref, hora_id_ref, id_linha);
+
+CREATE TABLE sptrans.linhas_abaixo_meta_stage(
+	data_ref text NOT NULL,
+	hora_id_ref text NOT NULL,
+	id_linha int8 NOT NULL,
+	sentido_linha int8 NULL,
+	let_cod_linha text NULL,
+	let_destino text NULL,
+	let_origem text NULL,
+	meta_qtde_onibus int8 NULL,
+	avg_qtde_onibus int8 NULL
+);
+
+----------------------------------------------------------------------------------------------------------------------
+-- Tabela: sptrans.total_linhas_abaixo_meta
+-- Descricao: tabela com o total de linhas de onibus que ficaram abaixo da meta da media de quantidade de onibus circulando 
+--            em uma data/hora.
+-- 
+-- Tabela sptrans.total_linhas_abaixo_meta_stage
+-- Descricao: tabela auxiliar, utilizada pelos programas Python para realizar upsert das linhas na
+--            tabela sptrans.total_linhas_abaixo_meta_stage
+
+CREATE TABLE sptrans.total_linhas_abaixo_meta(
+	data_ref text NOT NULL,
+	hora_id_ref text NOT NULL,
+	qtde_linhas int8 NULL
+);
+
+ALTER TABLE sptrans.total_linhas_abaixo_meta ADD CONSTRAINT total_linhas_abaixo_meta_pk PRIMARY KEY (data_ref, hora_id_ref);
+
+CREATE TABLE sptrans.total_linhas_abaixo_meta_stage(
+	data_ref text NOT NULL,
+	hora_id_ref text NOT NULL,
+	qtde_linhas int8 NULL
+);
+
+
+----------------------------------------------------------------------------------------------------------------------
+-- Tabela sptrans.meta_onibus_por_linha
+-- Descricao: tabela com a meta de quantidade de onibus por hora que cada linha deve possuir
+--  
+
+
+CREATE TABLE sptrans.meta_onibus_por_linha (
+	hora_id_ref text NULL,
+	id_linha int8 NULL,
+	sentido_linha int8 NULL,
+	let_cod_linha text NULL,
+	let_destino text NULL,
+	let_origem text NULL,
+	meta_qtde_onibus int8 NULL
+);
+
+
+ALTER TABLE sptrans.meta_onibus_por_linha ADD CONSTRAINT meta_onibus_por_linha_pk PRIMARY KEY (hora_id_ref, id_linha);
+
+
+----------------------------------------------------------------------------------------------------------------------
+-- Fim do DDL

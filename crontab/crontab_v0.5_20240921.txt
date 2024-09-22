@@ -1,0 +1,3 @@
+4,7,10,13,16,19,22,25,28,31,34,37,40,43,46,49,52,55,58 * * * * /FIA/FIA_SPTRANS/crontab/run_cur.sh >> /FIA/FIA_SPTRANS/crontab/log/run_cur.log
+2 * * * * /FIA/FIA_SPTRANS/crontab/run_ant.sh >> /FIA/FIA_SPTRANS/crontab/log/run_ant.log
+5 * * * * /FIA/FIA_SPTRANS/crontab/run_meta.sh >> /FIA/FIA_SPTRANS/crontab/log/run_meta.log

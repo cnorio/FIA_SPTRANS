@@ -93,6 +93,7 @@ O armazenamento na camada bronze é feito no Minio:
 
 + Arquivos com recepção OK:
 + ----Path: API_SPTRANS_POSICAO_OK/YYYY/MM/DD/HH
++ ----Layout: Ver metadados item 4.1.1
 + ----Nomenclatura dos arquivos: YYYYMMDD_HH_\<nome gerado internamente pelo NIFI\>.json
   ![image](https://github.com/user-attachments/assets/2dcc1967-f889-4b43-9830-51232e243fd3)
 
@@ -125,24 +126,9 @@ Esses programas Python foram escritos a partir dos Jupiter Notebooks abaixo, que
 + Saída: Arquivos em formato Parquet, com os dados dos ônibus em formato de tabela, que ficarão armazenadas na camada prata.
 + ----Bucket: prata
 + ----Path: POSICAO_PARQUET/YYYY/MM/DD/HH onde YYYY: ano MM: Mês DD: Dia e HH: Hora - São referentes a data/hora processada
+![image](https://github.com/user-attachments/assets/a95635f4-241e-4984-981b-6fde70934e5a)  
++ ----Layout: Ver Metadados item 4.2.1
 
-![image](https://github.com/user-attachments/assets/a95635f4-241e-4984-981b-6fde70934e5a)
-
-+ ----Layout:
-+ --------data_ref       : data de referencia da geracao dos dados
-+ --------hora_ref       : hora de referência da geração dos dados
-+ --------cod_onibus     : código do veículo    
-+ --------sentido_linha  : sentido de operação da linha (1 do Term Principal para o Term Secundário - 2 do Term Secundário para o Term Principal)        
-+ --------let_cod_linha  : código da linha no letreiro do ônibus    
-+ --------let_destino    : letreiro de destino da linha
-+ --------let_origem     : letreiro de origem da linha
-+ --------timestamp_pos  : data/hora local da coleta das infos do ônibus
-+ --------latitude_pos   : latitude da posição do ônibus
-+ --------longitude_pos  : longitude da posição do ônibus
-+ --------id_linha       : código interno da linha
-+ --------qtde_onibus    : quantidade de ônibus localizados
-
-![image](https://github.com/user-attachments/assets/c270a958-2ec5-4331-817b-7b3f1e3e1f3c)
 
 #### 3.2.2 Programa SPTRANS_Transf_Ouro_Posicao_Parquet_Vx.y.py
 + Descrição: programa Python que, a partir das informações da camada prata, irá gerar as estatísticas de quantidade de ônibus por linha e armazená-las em arquivos em formato Parquet na camada ouro. Os arquivos processados são referentes a uma determinada hora, anteriores a hora atual.
@@ -190,7 +176,63 @@ Os gráficos exibidos no dashboard do Grafana são baseados nos dados das tabela
 + sptrans.total_linhas_atingida_meta
 + sptrans.media_onibus_por_linha
 + sptrans.total_onibus_geral
-  
+
+
+## 4. Metadados
+
+### 4.1. Camada Bronze
+
+#### 4.1.1. API_SPTRANS_POSICAO_OK
+
++ Path: API_SPTRANS_POSICAO_OK/YYYY/MM/DD/HH
++ Nomenclatura dos arquivos: YYYYMMDD_HH_\<nome gerado internamente pelo NIFI\>.json
+  ![image](https://github.com/user-attachments/assets/2dcc1967-f889-4b43-9830-51232e243fd3)
+
++Layout
++ [string]hr: Horário de referência da geração das informações 
++ [{}]l: Relação de linhas localizadas onde: 
++ ----[string]c: Letreiro completo 
++ ----[int]cl: Código identificador da linha 
++ ----[int]sl: Sentido de operação onde 1 significa de Terminal Principal para Terminal Secundário e 2 de Terminal Secundário para Terminal Principal 
++ ----[string]lt0: Letreiro de destino da linha
++ ----[string]lt1: Letreiro de origem da linha 
++ ----[int]qv: Quantidade de veículos localizados 
++ ----[{}]vs: Relação de veículos localizados, onde: 
++ --------[int]p: Prefixo do veículo 
++ --------[bool]a: Indica se o veículo é (true) ou não (false) acessível para pessoas com deficiência 
++ --------[string]ta: Indica o horário universal (UTC) em que a localização foi capturada. Essa informação está no padrão ISO 8601 
++ --------[double]py: Informação de latitude da localização do veículo 
++ --------[double]px: Informação de longitude da localização do veículo
+
+![image](https://github.com/user-attachments/assets/2d809f81-6b7e-4fd0-a8a5-3dc665151e9e)
+
+### 4.2. Camada Prata
+
+#### 4.2.1. POSICAO_PARQUET
+
++ ----Path: POSICAO_PARQUET/YYYY/MM/DD/HH onde YYYY: ano MM: Mês DD: Dia e HH: Hora - São referentes a data/hora processada
+
+![image](https://github.com/user-attachments/assets/a95635f4-241e-4984-981b-6fde70934e5a)
+
++ ----Layout:
++ --------data_ref       : data de referencia da geracao dos dados
++ --------hora_ref       : hora de referência da geração dos dados
++ --------cod_onibus     : código do veículo    
++ --------sentido_linha  : sentido de operação da linha (1 do Term Principal para o Term Secundário - 2 do Term Secundário para o Term Principal)        
++ --------let_cod_linha  : código da linha no letreiro do ônibus    
++ --------let_destino    : letreiro de destino da linha
++ --------let_origem     : letreiro de origem da linha
++ --------timestamp_pos  : data/hora local da coleta das infos do ônibus
++ --------latitude_pos   : latitude da posição do ônibus
++ --------longitude_pos  : longitude da posição do ônibus
++ --------id_linha       : código interno da linha
++ --------qtde_onibus    : quantidade de ônibus localizados
+
+![image](https://github.com/user-attachments/assets/c270a958-2ec5-4331-817b-7b3f1e3e1f3c)
+
+### 4.3. Camada Ouro
+
+### 4.4. Tabelas PostgreSql
 
 
 

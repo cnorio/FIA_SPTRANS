@@ -210,27 +210,43 @@ Os gráficos exibidos no dashboard do Grafana são baseados nos dados das tabela
 
 #### 4.2.1. POSICAO_PARQUET
 
-+ ----Path: POSICAO_PARQUET/YYYY/MM/DD/HH onde YYYY: ano MM: Mês DD: Dia e HH: Hora - São referentes a data/hora processada
++ Path: POSICAO_PARQUET/YYYY/MM/DD/HH onde YYYY: ano MM: Mês DD: Dia e HH: Hora - São referentes a data/hora processada
 
 ![image](https://github.com/user-attachments/assets/a95635f4-241e-4984-981b-6fde70934e5a)
 
-+ ----Layout:
-+ --------data_ref       : data de referencia da geracao dos dados
-+ --------hora_ref       : hora de referência da geração dos dados
-+ --------cod_onibus     : código do veículo    
-+ --------sentido_linha  : sentido de operação da linha (1 do Term Principal para o Term Secundário - 2 do Term Secundário para o Term Principal)        
-+ --------let_cod_linha  : código da linha no letreiro do ônibus    
-+ --------let_destino    : letreiro de destino da linha
-+ --------let_origem     : letreiro de origem da linha
-+ --------timestamp_pos  : data/hora local da coleta das infos do ônibus
-+ --------latitude_pos   : latitude da posição do ônibus
-+ --------longitude_pos  : longitude da posição do ônibus
-+ --------id_linha       : código interno da linha
-+ --------qtde_onibus    : quantidade de ônibus localizados
++ Layout:
++ ----data_ref:  string    : data de referencia da geracao dos dados
++ ----hora_ref:  string    : hora de referência da geração dos dados
++ ----cod_onibus:    long  : código do veículo    
++ ----sentido_linha: long  : sentido de operação da linha (1 do Term Principal para o Term Secundário - 2 do Term Secundário para o Term Principal)        
++ ----let_cod_linha: string  : código da linha no letreiro do ônibus    
++ ----let_destino:   string  : letreiro de destino da linha
++ ----let_origem:    string  : letreiro de origem da linha
++ ----timestamp_pos: timestamp : data/hora local da coleta das infos do ônibus
++ ----latitude_pos:  double : latitude da posição do ônibus
++ ----longitude_pos: double : longitude da posição do ônibus
++ ----id_linha:      long   : código interno da linha
++ ----qtde_onibus:   long   : quantidade de ônibus localizados
 
 ![image](https://github.com/user-attachments/assets/c270a958-2ec5-4331-817b-7b3f1e3e1f3c)
 
 ### 4.3. Camada Ouro
+
+#### 4.3.1 MEDIA_ONIBUS_POR_LINHA
+
+#### 4.3.2 TOTAL_ONIBUS_POR_LINHA
+
+#### 4.3.3 MEDIA_ONIBUS_GERAL
+
+#### 4.3.4 TOTAL_ONIBUS_GERAL
+
+#### 4.3.5 LINHAS_ABAIXO_META
+
+#### 4.3.6 TOTAL_LINHAS_ABAIXO_META
+
+#### 4.3.7 LINHAS_ATINGIDA_META
+
+#### 4.3.8 TOTAL_LINHAS_ATINGIDA_META
 
 ### 4.4. Tabelas PostgreSql
 

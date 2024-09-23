@@ -50,5 +50,11 @@ Abaixo seguem as ferramentas que serão utilizadas:
 
 ![image](https://github.com/user-attachments/assets/4d867816-25a6-44e7-8ca4-7e00a441546c)
 
-
+O processamento no NiFi é composto com os seguintes processadores:
++ SPTRANS_TRIGGER_API: processador responsável por iniciar o pipeline de ingestão de dados no NiFi. Nele está configurado o scheduler, para iniciar o pipeline a cada 5 minutos (no mínimo).
++ SPTRANS_POST_AUTORIZAR: processador responsável por solicitar, através da API AUTENTICAR (POST), uma abertura de uma sessão através de uma KEY de autorização, obtida previamente no site da SPTRANS. As informações da sessão criada são devolvidas em um cookie armazenado no FileFlow do NiFi.
++ SPTRANS_GET_POSICAO: processador responsável por chamar a API POSICAO (GET), e receber os dados de localização de todos os ônibus em circulação na cidade de São Paulo em formato JSON.
++ SPTRANS_VALIDATE_FILESIZE: processador responsável por verificar se o acesso a API POSICAO foi um sucesso, baseado no tamanho em bytes dos dados retornados. Caso o tamanho seja maior que o configurado, esses dados são enviados para serem armazenados na camada bronze num path como sucesso. Caso contrário, são armazenados na camada bronze num path de erro.
++ SPTRANS_SAVE_OK_JSON_MINIO: processador responsável por armazenar os dados retornados da API POSICAO num path com sucesso.
++ SPTRANS_SAVE_NOK_JSON_MINIO: processador responsável por armazenar os dados retornados da API POSICAO num path de erro. 
 

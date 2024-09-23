@@ -58,3 +58,12 @@ O processamento no NiFi é composto com os seguintes processadores:
 + SPTRANS_SAVE_OK_JSON_MINIO: processador responsável por armazenar os dados retornados da API POSICAO num path com sucesso.
 + SPTRANS_SAVE_NOK_JSON_MINIO: processador responsável por armazenar os dados retornados da API POSICAO num path de erro. 
 
+Seguem abaixo os dados das API:
++ API Autorizar
+  Método: Post
+  URL: http://api.olhovivo.sptrans.com.br/v2.1/Login/Autenticar?token=<token>
+
++ API Posicao
+  Método: Get
+  URL: http://api.olhovivo.sptrans.com.br/v2.1/Posicao
+

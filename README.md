@@ -70,20 +70,20 @@ Seguem abaixo os dados das API:
 
 #### 3.1.2. Descrição do JSON
 Abaixo a descrição dos campos em JSON retornados pela API Posicao
-+[string]hr Horário de referência da geração das informações 
-+[{}]l Relação de linhas localizadas onde: 
-+  [string]c Letreiro completo 
-+  [int]cl Código identificador da linha 
-+  [int]sl Sentido de operação onde 1 significa de Terminal Principal para Terminal Secundário e 2 de Terminal Secundário para Terminal Principal 
-+  [string]lt0 Letreiro de destino da linha
-+  [string]lt1 Letreiro de origem da linha 
-+  [int]qv Quantidade de veículos localizados 
-+    [{}]vs Relação de veículos localizados, onde: 
-+    [int]p Prefixo do veículo 
-+    [bool]a Indica se o veículo é (true) ou não (false) acessível para pessoas com deficiência 
-+    [string]ta Indica o horário universal (UTC) em que a localização foi capturada. Essa informação está no padrão ISO 8601 
-+    [double]py Informação de latitude da localização do veículo 
-+    [double]px Informação de longitude da localização do veículo
++[string]hr: Horário de referência da geração das informações 
++[{}]l: Relação de linhas localizadas onde: 
++ . [string]c: Letreiro completo 
++ . [int]cl: Código identificador da linha 
++ . [int]sl: Sentido de operação onde 1 significa de Terminal Principal para Terminal Secundário e 2 de Terminal Secundário para Terminal Principal 
++ . [string]lt0: Letreiro de destino da linha
++ . [string]lt1: Letreiro de origem da linha 
++ . [int]qv: Quantidade de veículos localizados 
++ .   [{}]vs: Relação de veículos localizados, onde: 
++ .   [int]p: Prefixo do veículo 
++ .   [bool]a: Indica se o veículo é (true) ou não (false) acessível para pessoas com deficiência 
++ .   [string]ta: Indica o horário universal (UTC) em que a localização foi capturada. Essa informação está no padrão ISO 8601 
++ .   [double]py: Informação de latitude da localização do veículo 
++ .   [double]px: Informação de longitude da localização do veículo
 
 #### 3.1.3. Armazenamento Camada Bronze
 O armazenamento na camada bronze é feito no Minio:

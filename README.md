@@ -122,5 +122,17 @@ Esses programas Python foram escritos a partir dos Jupiter Notebooks abaixo, que
 + Descrição: Programa Python que irá transformar os arquivos em JSON da camada bronze em um formato de tabela, selecionando as colunas de interesse e armazenando-as em arquivos com formato Parquet na camada prata. O arquivos processados são referentes a uma determinada hora, relativa a hora atual.
 + Execução: spark-submit SPTRANS_Transf_Prata_Posicao_Parquet_Vx.x.py <horas anteriores a atual>  onde: <horas anteriores a atual>: a hora a ser processada é a hora atual menos a quantidade especificada nesse parâmetro.
 + Entrada: Arquivos em formato JSON que se encontram na camada bronze no path: API_SPTRANS_POSICAO_OK/YYYY/MM/DD/HH onde HH é a hora a ser processada
-+ Saída: São gerados 4 arquivos em formato Parquet com as estatísticas das quantidade de ônibus.
++ Saída: Arquivos em formato Parquet, com os dados dos ônibus em formato de tabela, que ficarão armazenadas na camada prata.
 
+#### 3.2.2 Programa SPTRANS_Transf_Ouro_Posicao_Parquet_Vx.y.py
++ Descrição: programa Python que, a partir das informações da camada prata, irá gerar as estatísticas de quantidade de ônibus por linha e armazená-las em arquivos em formato Parquet na camada ouro.
++ Execução: spark-submit SPTRANS_Transf_Ouro_Posicao_Parquet_Vx.y.py <horas anteriores a atual>  onde: <horas anteriores a atual>: a hora a ser processada é a hora atual menos a quantidade especificada nesse parâmetro.
++ Entrada: Arquivos em formato Parquet que se encontram na camada prata no path: POSICAO_PARQUET/YYYY/MM/DD/HH onde HH é a hora a ser processada
++ Saída: Arquivos em formato Parquet, com as estatística de quantidade de ônibus, que ficarão armazenadas na camada ouro.
+
+#### 3.2.3 Programa SPTRANS_Transf_Ouro_Meta_Onibus_Vx.y.py
++ Descrição: programa Python que, a partir das informações estatísticas da camada ouro e da tabela com a meta de quantidade de ônbius por linha (tabela armazenada no PostgreSQL), irá gerar as listas de linhas que atingiram ou não a meta estipulada.
++ Execução: spark-submit SPTRANS_Transf_Ouro_Meta_Onibus_Vx.y.py <horas anteriores a atual>  onde: <horas anteriores a atual>: a hora a ser processada é a hora atual menos a quantidade especificada nesse parâmetro.
++ Entrada: Arquivos em formato Parquet que se encontram na camada ouro no path: MEDIA_ONIBUS_POR_LINHA/YYYY/MM/DD/HH onde HH é a hora a ser processada.
++ -------: Tabela meta_onibus_por_linha que se encontra armazenada no PostgreSQL.
++ Saída: Arquivos em formato Parquet, com as estatística das linhas que atingiram ou não a meta estipulada de quantidade de ônibus na hora a ser processada.

@@ -146,7 +146,6 @@ Esses programas Python foram escritos a partir dos Jupiter Notebooks abaixo, que
 
 ![image](https://github.com/user-attachments/assets/dcba776d-b102-4bae-9ad7-626dc0e56589)
 
-
 + ---- Saída 2: Estatística da média da quantidade de ônibus por hora
 + --------Bucket: ouro
 + --------Path: MEDIA_ONIBUS_GERAL/YYYY/MM/DD/HH onde YYYY: ano MM: Mês DD: Dia e HH: Hora - São referentes a data/hora processada
@@ -174,6 +173,11 @@ Esses programas Python foram escritos a partir dos Jupiter Notebooks abaixo, que
 
 ![image](https://github.com/user-attachments/assets/640ad75f-22be-4cf7-ad83-e7ca21dbcd52)
 
++ ---- Saída 5: As mesmas informações armazenadas nos buckets das saídas 1, 2, 3 e 4 também são armazenadas respectivamente nas tabelas PostgreSQL:
++ --------Tabela: sptrans.media_onibus_por_linha (ver Metadados item 4.4.2)
++ --------Tabela: sptrans.media_onibus_geral (ver Metadados item 4.4.3)
++ --------Tabela: sptrans.total_onibus_por_linha (ver Metadados item 4.4.4)
++ --------Tabela: sptrans.total_onibus_por_linha (ver Metadados item 4.4.5)
   
 #### 3.2.3 Programa SPTRANS_Transf_Ouro_Meta_Onibus_Vx.y.py
 + Descrição: programa Python que, a partir das informações estatísticas da camada ouro e da tabela com a meta de quantidade de ônbius por linha (tabela armazenada no PostgreSQL), irá gerar as listas de linhas que atingiram ou não a meta estipulada. Os arquivos processados são referentes a uma determinada hora, anteriores a hora atual.
@@ -226,12 +230,12 @@ Esses programas Python foram escritos a partir dos Jupiter Notebooks abaixo, que
 
 ### 3.3. Visualização - Grafana
 Os gráficos exibidos no dashboard do Grafana são baseados nos dados das tabelas abaixo da camada ouro:
-+ sptrans.linhas_abaixo_meta (ver descrição no item 4.3.x)
-+ sptrans.total_linhas_abaixo_meta (ver descrição no item 4.3.x)
-+ sptrans.linhas_atingida_meta (ver descrição no item 4.3.x)
-+ sptrans.total_linhas_atingida_meta (ver descrição no item 4.3.x)
-+ sptrans.media_onibus_por_linha (ver descrição no item 4.3.x)
-+ sptrans.total_onibus_geral (ver descrição no item 4.3.x)
++ sptrans.linhas_abaixo_meta (ver descrição no item 4.3.8)
++ sptrans.total_linhas_abaixo_meta (ver descrição no item 4.3.9)
++ sptrans.linhas_atingida_meta (ver descrição no item 4.3.6)
++ sptrans.total_linhas_atingida_meta (ver descrição no item 4.3.7)
++ sptrans.media_onibus_por_linha (ver descrição no item 4.3.2)
++ sptrans.total_onibus_geral (ver descrição no item 4.3.3)
 
 
 ## 4. Metadados

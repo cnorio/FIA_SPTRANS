@@ -193,7 +193,7 @@ Os gráficos exibidos no dashboard do Grafana são baseados nos dados das tabela
 + l:[{}]: Relação de linhas localizadas onde: 
 + ----c: string: Letreiro completo 
 + ----cl: int: Código identificador da linha 
-+ ----sl: int: Sentido de operação onde 1 significa de Terminal Principal. para Secundário e 2 de Terminal Secundário para Principal 
++ ----sl: int: Sentido de operação onde 1 significa de Term Principal. para Secundário e 2 de Term Secundário para Principal 
 + ----lt0: string: Letreiro de destino da linha
 + ----lt1: string: Letreiro de origem da linha 
 + ----qv:int : Quantidade de veículos localizados 
@@ -218,7 +218,7 @@ Os gráficos exibidos no dashboard do Grafana são baseados nos dados das tabela
 + ----data_ref:  string    : data de referencia da geracao dos dados
 + ----hora_ref:  string    : hora de referência da geração dos dados
 + ----cod_onibus:    long  : código do veículo    
-+ ----sentido_linha: long  : sentido de operação da linha (1 do Term Principal para o Term Secundário - 2 do Term Secundário para o Term Principal)        
++ ----sentido_linha: long  : sentido de operação da linha (1 do Term Principal para o Secundário - 2 do Term Secundário para o Principal)        
 + ----let_cod_linha: string  : código da linha no letreiro do ônibus    
 + ----let_destino:   string  : letreiro de destino da linha
 + ----let_origem:    string  : letreiro de origem da linha

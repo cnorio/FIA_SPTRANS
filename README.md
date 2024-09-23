@@ -173,7 +173,7 @@ Esses programas Python foram escritos a partir dos Jupiter Notebooks abaixo, que
 
 ![image](https://github.com/user-attachments/assets/640ad75f-22be-4cf7-ad83-e7ca21dbcd52)
 
-+ ---- Saída 5: As mesmas informações armazenadas nos buckets das saídas 1, 2, 3 e 4 também são armazenadas respectivamente nas tabelas PostgreSQL:
++ ---- Saída 5: As mesmas informações armazenadas na camada ouro nas saídas 1, 2, 3 e 4 também são armazenadas respectivamente nas tabelas PostgreSQL:
 + --------Tabela: sptrans.media_onibus_por_linha (ver Metadados item 4.4.2)
 + --------Tabela: sptrans.media_onibus_geral (ver Metadados item 4.4.3)
 + --------Tabela: sptrans.total_onibus_por_linha (ver Metadados item 4.4.4)
@@ -222,7 +222,12 @@ Esses programas Python foram escritos a partir dos Jupiter Notebooks abaixo, que
 
 ![image](https://github.com/user-attachments/assets/d954b10d-e093-4097-a117-796a4392d213)
 
-
++ ---- Saída 5: As mesmas informações armazenadas na camada ouro nas saídas 1, 2, 3 e 4 também são armazenadas respectivamente nas tabelas PostgreSQL:
++ --------Tabela: sptrans.linhas_abaixo_meta (ver Metadados item 4.4.8)
++ --------Tabela: sptrans.total_linhas_abaixo_meta (ver Metadados item 4.4.9)
++ --------Tabela: sptrans.linhas_atingida_meta (ver Metadados item 4.4.6)
++ --------Tabela: sptrans.total_linhas_atingida_meta (ver Metadados item 4.4.7)
+  
 #### 3.2.4 Scheduler de execução
 + Os programas SPTRANS_Transf_Prata_Posicao_Parquet_Vx.y.py e SPTRANS_Transf_Ouro_Posicao_Parquet_Vx.y.py são executados através da crontab com frequência igual ou menor a 5 minutos.
 + O programa SPTRANS_Transf_Ouro_Meta_Onibus_Vx.y.py é executado também pela crontab com frequência horária, visto que a validação com a tabela meta_onibus_por_linha precisa ser feito com a média horária.

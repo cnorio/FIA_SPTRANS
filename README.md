@@ -123,6 +123,26 @@ Esses programas Python foram escritos a partir dos Jupiter Notebooks abaixo, que
 + Execução: spark-submit SPTRANS_Transf_Prata_Posicao_Parquet_Vx.x.py <horas anteriores a atual>  onde: <horas anteriores a atual>: a hora a ser processada é a hora atual menos a quantidade especificada nesse parâmetro.
 + Entrada: Arquivos em formato JSON que se encontram na camada bronze no path: API_SPTRANS_POSICAO_OK/YYYY/MM/DD/HH onde HH é a hora a ser processada
 + Saída: Arquivos em formato Parquet, com os dados dos ônibus em formato de tabela, que ficarão armazenadas na camada prata.
++ ----Bucket: prata
++ ----Path: POSICAO_PARQUET/YYYY/MM/DD/HH onde YYYY: ano MM: Mês DD: Dia e HH: Hora - São referentes a data/hora processada
+
+![image](https://github.com/user-attachments/assets/a95635f4-241e-4984-981b-6fde70934e5a)
+
++ ----Layout:
++ --------data_ref       : data de referencia da geracao dos dados
++ --------hora_ref       : hora de referência da geração dos dados
++ --------cod_onibus     : código do veículo    
++ --------sentido_linha  : sentido de operação da linha (1 do Term Principal para o Term Secundário - 2 do Term Secundário para o Term Principal)        
++ --------let_cod_linha  : código da linha no letreiro do ônibus    
++ --------let_destino    : letreiro de destino da linha
++ --------let_origem     : letreiro de origem da linha
++ --------timestamp_pos  : data/hora local da coleta das infos do ônibus
++ --------latitude_pos   : latitude da posição do ônibus
++ --------longitude_pos  : longitude da posição do ônibus
++ --------id_linha       : código interno da linha
++ --------qtde_onibus    : quantidade de ônibus localizados
+
+![image](https://github.com/user-attachments/assets/c270a958-2ec5-4331-817b-7b3f1e3e1f3c)
 
 #### 3.2.2 Programa SPTRANS_Transf_Ouro_Posicao_Parquet_Vx.y.py
 + Descrição: programa Python que, a partir das informações da camada prata, irá gerar as estatísticas de quantidade de ônibus por linha e armazená-las em arquivos em formato Parquet na camada ouro. Os arquivos processados são referentes a uma determinada hora, anteriores a hora atual.

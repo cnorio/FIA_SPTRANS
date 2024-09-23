@@ -68,7 +68,24 @@ Seguem abaixo os dados das API:
   ++Método: Get
   ++URL: http://api.olhovivo.sptrans.com.br/v2.1/Posicao
 
-#### 3.1.2. Armazenamento Camada Bronze
+#### 3.1.2. Descrição do JSON
+Abaixo a descrição dos campos em JSON retornados pela API Posicao
++[string]hr Horário de referência da geração das informações 
++[{}]l Relação de linhas localizadas onde: 
++  [string]c Letreiro completo 
++  [int]cl Código identificador da linha 
++  [int]sl Sentido de operação onde 1 significa de Terminal Principal para Terminal Secundário e 2 de Terminal Secundário para Terminal Principal 
++  [string]lt0 Letreiro de destino da linha
++  [string]lt1 Letreiro de origem da linha 
++  [int]qv Quantidade de veículos localizados 
++    [{}]vs Relação de veículos localizados, onde: 
++    [int]p Prefixo do veículo 
++    [bool]a Indica se o veículo é (true) ou não (false) acessível para pessoas com deficiência 
++    [string]ta Indica o horário universal (UTC) em que a localização foi capturada. Essa informação está no padrão ISO 8601 
++    [double]py Informação de latitude da localização do veículo 
++    [double]px Informação de longitude da localização do veículo
+
+#### 3.1.3. Armazenamento Camada Bronze
 O armazenamento na camada bronze é feito no Minio:
 + Bucket: bronze
 + Arquivos com recepção OK:
@@ -81,5 +98,10 @@ Nomenclatura dos arquivos: YYYYMMDD_HH_<nome gerado internamente pelo NIFI)
 Onde: YYYY: ano com 4 dígitos MM: Mês com dois dígitos  DD: dia com dois dígitos  HH: hora com dois dígitos
 Essas informações são relativas a data/hora de recepção dos dados da API.
 
+### 3.2. Processamento - SPARK
 
+Os dados recebidos na camada bronze são processados no SPARK através dos 3 programas Python abaixo:
++ SPTRANS_Transf_Prata_Posicao_Parquet_Vx.x.py: programa Python que irá transformar os JSON da camada bronze em um formato de tabela, selecionando as colunas de interesse e armazenando-as em arquivos com formato Parquet na camada prata.
++ SPTRANS_Transf_Ouro_Posicao_Parquet_Vx.y.py: programa Python que, a partir dasd informações da camada prata, irá gerar as estatísticas de quantidade de ônibus por linha e armazená-las em arquivos em formato Parquet na camada ouro.
++  
 

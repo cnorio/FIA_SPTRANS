@@ -305,7 +305,7 @@ Os gráficos exibidos no dashboard do Grafana são baseados nos dados das tabela
 
 + Layout:
 + ----data_ref:      string  : data da verificação da meta
-+ ----hora_id_ref:   string  : hora da verificação da meta cálculo da média
++ ----hora_id_ref:   string  : hora da verificação da meta
 + ----id_linha:      long    : código interno da linha
 + ----sentido_linha: long    : sentido de operação da linha (1 do Term Principal para o Secundário - 2 do Term Secundário para o Principal)
 + ----let_cod_linha: string  : código da linha no letreiro do ônibus    
@@ -325,6 +325,9 @@ Os gráficos exibidos no dashboard do Grafana são baseados nos dados das tabela
 
 
 + Layout:
++ ----data_ref:      string  : data da verificação da meta
++ ----hora_id_ref:   string  : hora da verificação da meta
++ ----qtde_linhas:   long   : quantidade de de linhas que ficaram abaixo da meta para a hora de verificação
 
 ![image](https://github.com/user-attachments/assets/160c5fa3-a767-4c35-8a54-bf0487c21178)
 
@@ -337,6 +340,16 @@ Os gráficos exibidos no dashboard do Grafana são baseados nos dados das tabela
 
 
 + Layout:
++ ----data_ref:      string  : data da verificação da meta
++ ----hora_id_ref:   string  : hora da verificação da meta
++ ----id_linha:      long    : código interno da linha
++ ----sentido_linha: long    : sentido de operação da linha (1 do Term Principal para o Secundário - 2 do Term Secundário para o Principal)
++ ----let_cod_linha: string  : código da linha no letreiro do ônibus    
++ ----let_destino:   string  : letreiro de destino da linha
++ ----let_origem:    string  : letreiro de origem da linha
++ ----meta_qtde_onibus:   long   : meta da quantidade de ônibus da linha para a hora de verificação
++ ----avg_qtde_onibus:   long    : média da quantidade de ônibus da linha para a hora de verificação
+
 
 ![image](https://github.com/user-attachments/assets/78780098-0ab5-451b-be6d-6d675baf9f90)
 
@@ -349,6 +362,9 @@ Os gráficos exibidos no dashboard do Grafana são baseados nos dados das tabela
 
 
 + Layout:
++ ----data_ref:      string  : data da verificação da meta
++ ----hora_id_ref:   string  : hora da verificação da meta
++ ----qtde_linhas:   long   : quantidade de de linhas que atingiram a meta para a hora de verificação
 
 ![image](https://github.com/user-attachments/assets/d954b10d-e093-4097-a117-796a4392d213)
 

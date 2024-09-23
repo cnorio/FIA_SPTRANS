@@ -17,7 +17,7 @@
 + Dra Alessandra de Ávila Montini
 + Dr Adolpho Walter Pimazoni Canton
 
-## Descrição
+## Objetivo
 O objetivo deste projeto é a partir do acesso a API Posicao disponibilizada pela SPTRANS, para consultar informações sobre ônibus em circulação na cidade de São Paulo, gerar indicadores para medir a qualidade do serviço prestado.
 
 Os principais indicadores a serem gerados são:
@@ -26,18 +26,22 @@ Os principais indicadores a serem gerados são:
 + Lista horária com as linhas cuja quantidade de ônibus em circulação atingiu uma meta acordada.
 + Lista horária  com as linhas cuja quantidade de ônibus em circulação ficaram abaixo de uma meta acordada.
 
-A fim de atender esse objetivo será criado
-O armazenamento dessas informações será feito em um Data Lake com uma estrutura medalhão de 3 camadas:
-+ bronze: dados obtidos dos acessos a API Posicao da SPTrans, sem nenhuma transformação.
-+ prata:  informações obtidas através de processamentos da camada bronze, visando a normalização e enriquecimento dos dados.
-+ ouro:   informações obtidas através de aplicações de regras de negócio aplicadas as informações da camada prata. Nesta camada encontram-se as informações dos indicadores citados acima.
+## Arquitetura da solução
 
-O pipeline criado para a consulta a API Posicao e os processamentos para as gerações das informações das camadas prata e ouro seguirão uma cadência de no mínimo 5 minutos.
+A arquitetura da solução é um pipeline que envolverá os seguintes processos:
++ Ingestão: processo responsável pelo acesso a API e envio dessas informações para armazenamento.
++ Transformação: processo responsável por normalizar, enriquecer, aplicar regras de negócio nos dados ingeridos e envio dessas informações para armazenamento.
++ Visualização: processo responsável por exibir em dashboard as informações armazenadas que foram geradas a partir das regras de negócio.
 
-Os indicadores gerados serão exibidos em um Dashboard, cujas informações serão atualizadas conforme a cadência acima.
+O armazenamento será feito através de um Data Lake, com uma estrutura medalhão de 3 camadas:
++ bronze: armazenamento dos dados obtidos dos acessos a API Posicao da SPTrans, sem nenhuma transformação.
++ prata : armazenamento de informações normalizadas e enriquecidas a partir do processamentos da camada bronze.
++ ouro: : armazenamento das informações obtidas através de aplicações de regras de negócio nas informações da camada prata. Nesta camada estarão as informações dos indicadores citados acima.
 
-
-
-
-
+Abaixo seguem as ferramentas que serão utilizadas:
++ Ingestão: NiFi
++ Transformação: Spark / Hive
++ Visualização: Grafana / PostgreSql
++ Armazenamento: Minio
+  
 

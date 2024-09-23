@@ -226,12 +226,12 @@ Esses programas Python foram escritos a partir dos Jupiter Notebooks abaixo, que
 
 ### 3.3. Visualização - Grafana
 Os gráficos exibidos no dashboard do Grafana são baseados nos dados das tabelas abaixo da camada ouro:
-+ sptrans.linhas_abiaxo_meta
-+ sptrans.total_linhas_abaixo_meta
-+ sptrans.linhas_atingida_meta
-+ sptrans.total_linhas_atingida_meta
-+ sptrans.media_onibus_por_linha
-+ sptrans.total_onibus_geral
++ sptrans.linhas_abaixo_meta (ver descrição no item 4.3.x)
++ sptrans.total_linhas_abaixo_meta (ver descrição no item 4.3.x)
++ sptrans.linhas_atingida_meta (ver descrição no item 4.3.x)
++ sptrans.total_linhas_atingida_meta (ver descrição no item 4.3.x)
++ sptrans.media_onibus_por_linha (ver descrição no item 4.3.x)
++ sptrans.total_onibus_geral (ver descrição no item 4.3.x)
 
 
 ## 4. Metadados

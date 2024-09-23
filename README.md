@@ -141,19 +141,31 @@ Esses programas Python foram escritos a partir dos Jupiter Notebooks abaixo, que
   
 ![image](https://github.com/user-attachments/assets/1467c349-8c34-4cbd-b05a-ebae2d032afb)
 
-+ --------Layout:
-+ ------------campo1:
-+ ------------campo2:
++ --------Layout: Ver Metadados item 4.3.1
 
-+ ---- Saída 2: Estatística da quantidade total de ônibus por linha na data/hora de geração dos dados
++ ---- Saída 2: Estatística da média da quantidade de ônibus por hora
++ --------Bucket: ouro
++ --------Path: MEDIA_ONIBUS_GERAL/YYYY/MM/DD/HH onde YYYY: ano MM: Mês DD: Dia e HH: Hora - São referentes a data/hora processada
+  
+![image](https://github.com/user-attachments/assets/d728e524-58a7-4736-a067-08011cd72e22)
+
++ --------Layout: Ver Metadados item 4.3.2
+  
++ ---- Saída 3: Estatística da quantidade total de ônibus por linha na data/hora de geração dos dados
 + --------Bucket: ouro
 + --------Path: TOTAL_ONIBUS_POR_LINHA/YYYY/MM/DD/HH onde YYYY: ano MM: Mês DD: Dia e HH: Hora - São referentes a data/hora processada
   
 ![image](https://github.com/user-attachments/assets/3703051f-7ff6-4046-9e8b-5b00db36ded1)
 
-+ --------Layout:
-+ ------------campo1:
-+ ------------campo2:
++ --------Layout: Ver Metadados item 4.3.3
+
++ ---- Saída 4: Estatística da quantidade total de ônibus por data/hora de geração dos dados
++ --------Bucket: ouro
++ --------Path: TOTAL_ONIBUS_GERAL/YYYY/MM/DD/HH onde YYYY: ano MM: Mês DD: Dia e HH: Hora - São referentes a data/hora processada
+  
+![image](https://github.com/user-attachments/assets/e4b28329-e0bf-47bd-8137-39f19d012cfc)  
+
++--------Layout: Ver Metadados item 4.3.4
 
   
 #### 3.2.3 Programa SPTRANS_Transf_Ouro_Meta_Onibus_Vx.y.py

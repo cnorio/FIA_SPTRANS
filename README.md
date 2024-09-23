@@ -250,7 +250,21 @@ Os gráficos exibidos no dashboard do Grafana são baseados nos dados das tabela
 
 ![image](https://github.com/user-attachments/assets/dcba776d-b102-4bae-9ad7-626dc0e56589)
 
-#### 4.3.2 TOTAL_ONIBUS_POR_LINHA
+#### 4.3.2 MEDIA_ONIBUS_GERAL
++ Descrição: Estatística da quantidade média de ônibus em circulação por hora.
++ Path: MEDIAL_ONIBUS_GERAL/YYYY/MM/DD/HH onde YYYY: ano MM: Mês DD: Dia e HH: Hora - São referentes a data/hora processada.
+
+![image](https://github.com/user-attachments/assets/d728e524-58a7-4736-a067-08011cd72e22)
+
++ Layout:
++ ----data_ref:      string  : data de referencia do cálculo da média
++ ----hora_id_ref:   string  : hora de referência do cálculo da média
++ ----qtde_onibus:   long    : quantidade média de ônibus
+
+![image](https://github.com/user-attachments/assets/4591c170-d8ae-46a6-bdcf-399449ab53f0)
+
+
+#### 4.3.3 TOTAL_ONIBUS_POR_LINHA
 + Descrição: Estatística da quantidade total de ônibus por linha em circulação na data/hora de geração dos dados.
 + Path: TOTAL_ONIBUS_POR_LINHA/YYYY/MM/DD/HH onde YYYY: ano MM: Mês DD: Dia e HH: Hora - São referentes a data/hora processada.
   
@@ -268,19 +282,6 @@ Os gráficos exibidos no dashboard do Grafana são baseados nos dados das tabela
 
 ![image](https://github.com/user-attachments/assets/29f295e8-73f9-4f99-8f70-ada6e67895e1)
 
-
-#### 4.3.3 MEDIA_ONIBUS_GERAL
-+ Descrição: Estatística da quantidade média de ônibus em circulação por hora.
-+ Path: MEDIAL_ONIBUS_GERAL/YYYY/MM/DD/HH onde YYYY: ano MM: Mês DD: Dia e HH: Hora - São referentes a data/hora processada.
-
-![image](https://github.com/user-attachments/assets/d728e524-58a7-4736-a067-08011cd72e22)
-
-+ Layout:
-+ ----data_ref:      string  : data de referencia do cálculo da média
-+ ----hora_id_ref:   string  : hora de referência do cálculo da média
-+ ----qtde_onibus:   long    : quantidade média de ônibus
-
-![image](https://github.com/user-attachments/assets/2f160cf5-c9de-41e0-a793-2426047331a4)
 
 #### 4.3.4 TOTAL_ONIBUS_GERAL
 + Descrição: Estatística da quantidade total de ônibus em circulação na data/hora de geração dos dados.
@@ -303,7 +304,18 @@ Os gráficos exibidos no dashboard do Grafana são baseados nos dados das tabela
 ![image](https://github.com/user-attachments/assets/290f9739-f7e4-46f4-a8d4-b0e3c68dbe45)
 
 + Layout:
-  
++ ----data_ref:      string  : data da verificação da meta
++ ----hora_id_ref:   string  : hora da verificação da meta cálculo da média
++ ----id_linha:      long    : código interno da linha
++ ----sentido_linha: long    : sentido de operação da linha (1 do Term Principal para o Secundário - 2 do Term Secundário para o Principal)
++ ----let_cod_linha: string  : código da linha no letreiro do ônibus    
++ ----let_destino:   string  : letreiro de destino da linha
++ ----let_origem:    string  : letreiro de origem da linha
++ ----meta_qtde_onibus:   long   : meta da quantidade de ônibus da linha para a hora de verificação
++ ----avg_qtde_onibus:   long    : média da quantidade de ônibus da linha para a hora de verificação
+
+![image](https://github.com/user-attachments/assets/695aa1a1-8c7c-4c19-b339-cf0b3ca90055)
+
 
 #### 4.3.6 TOTAL_LINHAS_ABAIXO_META
 + Descrição: Estatística da quantidade total de linhas de ônibus cujas médias horárias ficaram abaixo da meta da quantidade de ônibus em uma data/hora.
@@ -313,6 +325,9 @@ Os gráficos exibidos no dashboard do Grafana são baseados nos dados das tabela
 
 
 + Layout:
+
+![image](https://github.com/user-attachments/assets/160c5fa3-a767-4c35-8a54-bf0487c21178)
+
   
 #### 4.3.7 LINHAS_ATINGIDA_META
 + Descrição: Lista das linhas de ônibus cujas médias horárias atingiram a meta da quantidade de ônibus.
@@ -322,6 +337,9 @@ Os gráficos exibidos no dashboard do Grafana são baseados nos dados das tabela
 
 
 + Layout:
+
+![image](https://github.com/user-attachments/assets/78780098-0ab5-451b-be6d-6d675baf9f90)
+
   
 #### 4.3.8 TOTAL_LINHAS_ATINGIDA_META
 + Descrição: Estatística da quantidade total de linhas de ônibus cujas médias horárias atingiram a meta da quantidade de ônibus em uma data/hora.
@@ -331,6 +349,9 @@ Os gráficos exibidos no dashboard do Grafana são baseados nos dados das tabela
 
 
 + Layout:
+
+![image](https://github.com/user-attachments/assets/d954b10d-e093-4097-a117-796a4392d213)
+
   
 ### 4.4. Tabelas PostgreSql
 

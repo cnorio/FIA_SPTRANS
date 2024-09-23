@@ -4,7 +4,7 @@
 ## Equipe de Alunos
 + Celso Martins
 + Celso Norio Okuyama
-+ Gislaine Nisi
++ Gislene Nisi
 
 ## Professores
 + Fábio Jardim

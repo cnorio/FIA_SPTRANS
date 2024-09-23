@@ -189,20 +189,20 @@ Os gráficos exibidos no dashboard do Grafana são baseados nos dados das tabela
   ![image](https://github.com/user-attachments/assets/2dcc1967-f889-4b43-9830-51232e243fd3)
 
 +Layout
-+ [string]hr: Horário de referência da geração das informações 
-+ [{}]l: Relação de linhas localizadas onde: 
-+ ----[string]c: Letreiro completo 
-+ ----[int]cl: Código identificador da linha 
-+ ----[int]sl: Sentido de operação onde 1 significa de Terminal Principal para Terminal Secundário e 2 de Terminal Secundário para Terminal Principal 
-+ ----[string]lt0: Letreiro de destino da linha
-+ ----[string]lt1: Letreiro de origem da linha 
-+ ----[int]qv: Quantidade de veículos localizados 
-+ ----[{}]vs: Relação de veículos localizados, onde: 
-+ --------[int]p: Prefixo do veículo 
-+ --------[bool]a: Indica se o veículo é (true) ou não (false) acessível para pessoas com deficiência 
-+ --------[string]ta: Indica o horário universal (UTC) em que a localização foi capturada. Essa informação está no padrão ISO 8601 
-+ --------[double]py: Informação de latitude da localização do veículo 
-+ --------[double]px: Informação de longitude da localização do veículo
++ hr: string : Horário de referência da geração das informações 
++ l:[{}]: Relação de linhas localizadas onde: 
++ ----c: string: Letreiro completo 
++ ----cl: int: Código identificador da linha 
++ ----sl: int: Sentido de operação onde 1 significa de Terminal Principal. para Secundário e 2 de Terminal Secundário para Principal 
++ ----lt0: string: Letreiro de destino da linha
++ ----lt1: string: Letreiro de origem da linha 
++ ----qv:int : Quantidade de veículos localizados 
++ ----vs:[{}] :Relação de veículos localizados, onde: 
++ --------p: int:  Prefixo do veículo 
++ --------a: bool: Indica se o veículo é (true) ou não (false) acessível para pessoas com deficiência 
++ --------ta: string: Indica o horário universal (UTC) em que a localização foi capturada. Essa informação está no padrão ISO 8601 
++ --------py: double:Informação de latitude da localização do veículo 
++ --------px: double:Informação de longitude da localização do veículo
 
 ![image](https://github.com/user-attachments/assets/2d809f81-6b7e-4fd0-a8a5-3dc665151e9e)
 

@@ -113,5 +113,9 @@ Os dados recebidos na camada bronze são processados no SPARK através dos 3 pro
 + SPTRANS_Transf_Ouro_Posicao_Parquet_Vx.y.py: programa Python que, a partir das informações da camada prata, irá gerar as estatísticas de quantidade de ônibus por linha e armazená-las em arquivos em formato Parquet na camada ouro.
 + SPTRANS_Transf_Ouro_Meta_Onibus_Vx.y.py:programa Python que, a partir das informações estatísticas da camada ouro e da tabela com a meta de quantidade de ônbius por linha (tabela armazenada no PostgreSQL), irá gerar as listas de linhas que atingiram ou não a meta estipulada.
 
+Esses programas Python foram escritos a partir dos Jupiter Notebooks abaixo, que são mais facilmente desenvolvidos, testados e depurados:
++ Transf_Prata_Posicao_Parquet_Vx.y.ipynb => SPTRANS_Transf_Prata_Posicao_Parquet_Vx.y.py
++ Transf_Ouro_Posicao_Parquet_Vx.y.ipynb => SPTRANS_Transf_Ouro_Posicao_Parquet_Vx.y.py
++ Transf_Ouro_Meta_Onibus_Vx.y.ipynb => SPTRANS_Transf_Ouro_Meta_Onibus_Vx.y.py
 
 

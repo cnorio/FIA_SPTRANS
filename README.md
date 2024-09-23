@@ -70,11 +70,11 @@ Seguem abaixo os dados das API:
 
 #### 3.1.2. Armazenamento Camada Bronze
 O armazenamento na camada bronze é feito no Minio:
-Bucket: bronze
-Arquivos com recepção OK:
++ Bucket: bronze
++ Arquivos com recepção OK:
 Path: API_SPTRANS_POSICAO_OK/YYYY/MM/DD/HH
 Nomenclatura dos arquivos: YYYYMMDD_HH_<nome gerado internamente pelo NIFI)
-Arquivos com erro:
++ Arquivos com erro:
 Path: API_SPTRANS_POSICAO_NOK/YYYY/MM/DD/HH
 Nomenclatura dos arquivos: YYYYMMDD_HH_<nome gerado internamente pelo NIFI)
 

@@ -171,8 +171,9 @@ Esses programas Python foram escritos a partir dos Jupiter Notebooks abaixo, que
 #### 3.2.3 Programa SPTRANS_Transf_Ouro_Meta_Onibus_Vx.y.py
 + Descrição: programa Python que, a partir das informações estatísticas da camada ouro e da tabela com a meta de quantidade de ônbius por linha (tabela armazenada no PostgreSQL), irá gerar as listas de linhas que atingiram ou não a meta estipulada. Os arquivos processados são referentes a uma determinada hora, anteriores a hora atual.
 + Execução: spark-submit SPTRANS_Transf_Ouro_Meta_Onibus_Vx.y.py <horas anteriores a atual>  onde: <horas anteriores a atual>: a hora a ser processada é a hora atual menos a quantidade especificada nesse parâmetro.
-+ Entrada: Arquivos em formato Parquet que se encontram na camada ouro no path: MEDIA_ONIBUS_POR_LINHA/YYYY/MM/DD/HH onde HH é a hora a ser processada.
-+ -------: Tabela meta_onibus_por_linha que se encontra armazenada no PostgreSQL.
++ Entrada: Arquivos com a quantidade média de ônibus por linha da hora a ser processada e tabela do PostgreSQL com a meta da quantidade de ônibus por linha.
++ ---- Entrada1: Arquivos em formato Parquet que se encontram na camada ouro no path: MEDIA_ONIBUS_POR_LINHA/YYYY/MM/DD/HH onde HH é a hora a ser processada. Ver Metadados item 4.3.1.
++ ---- Entrada2: Tabela meta_onibus_por_linha que se encontra armazenada no PostgreSQL. Ver Metadados item 4.4.1.
 + Saída: Arquivos em formato Parquet, com as estatística das linhas que atingiram ou não a meta estipulada de quantidade de ônibus na hora a ser processada.
 
 #### 3.2.4 Scheduler de execução
@@ -383,5 +384,18 @@ Os gráficos exibidos no dashboard do Grafana são baseados nos dados das tabela
   
 ### 4.4. Tabelas PostgreSql
 
+#### 4.4.1. Tabela meta_onibus_por_linha
++ Schema: sptrans
++ Descrição: Tabela com a meta de quantidade de ônibus por hora de cada uma das linhas de ônibus
++ Layout:
++ ----hora_id_ref:   text  : hora de referência da meta
++ ----id_linha:      int8    : código interno da linha
++ ----sentido_linha: int8    : sentido de operação da linha (1 do Term Principal para o Secundário - 2 do Term Secundário para o Principal)
++ ----let_cod_linha: text  : código da linha no letreiro do ônibus    
++ ----let_destino:   text  : letreiro de destino da linha
++ ----let_origem:    text  : letreiro de origem da linha
++ ----meta_qtde_onibus:   int8  : meta da quantidade de ônibus da linha
+
+  
 
 

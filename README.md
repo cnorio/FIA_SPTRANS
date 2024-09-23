@@ -118,4 +118,9 @@ Esses programas Python foram escritos a partir dos Jupiter Notebooks abaixo, que
 + Transf_Ouro_Posicao_Parquet_Vx.y.ipynb => SPTRANS_Transf_Ouro_Posicao_Parquet_Vx.y.py
 + Transf_Ouro_Meta_Onibus_Vx.y.ipynb => SPTRANS_Transf_Ouro_Meta_Onibus_Vx.y.py
 
+#### 3.2.1 Programa SPTRANS_Transf_Prata_Posicao_Parquet_Vx.x.py
++ Descrição: Programa Python que irá transformar os arquivos em JSON da camada bronze em um formato de tabela, selecionando as colunas de interesse e armazenando-as em arquivos com formato Parquet na camada prata. O arquivos processados são referentes a uma determinada hora, relativa a hora atual.
++ Execução: spark-submit SPTRANS_Transf_Prata_Posicao_Parquet_Vx.x.py <horas anteriores a atual>  onde: <horas anteriores a atual>: a hora a ser processada é a hora atual menos a quantidade especificada nesse parâmetro.
++ Entrada: Arquivos em formato JSON que se encontram na camada bronze no path: API_SPTRANS_POSICAO_OK/YYYY/MM/DD/HH onde HH é a hora a ser processada
++ Saída: São gerados 4 arquivos em formato Parquet com as estatísticas das quantidade de ônibus.
 

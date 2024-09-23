@@ -267,13 +267,41 @@ Os gráficos exibidos no dashboard do Grafana são baseados nos dados das tabela
 + Layout:
   
 #### 4.3.5 LINHAS_ABAIXO_META
++ Descrição: Estatística da quantidade total de ônibus em circulação na data/hora de geração dos dados.
++ Path: TOTAL_ONIBUS_GERAL/YYYY/MM/DD/HH onde YYYY: ano MM: Mês DD: Dia e HH: Hora - São referentes a data/hora processada.
+
+![image](https://github.com/user-attachments/assets/290f9739-f7e4-46f4-a8d4-b0e3c68dbe45)
+
++ Layout:
+  
 
 #### 4.3.6 TOTAL_LINHAS_ABAIXO_META
++ Descrição: Estatística da quantidade total de ônibus em circulação na data/hora de geração dos dados.
++ Path: TOTAL_ONIBUS_GERAL/YYYY/MM/DD/HH onde YYYY: ano MM: Mês DD: Dia e HH: Hora - São referentes a data/hora processada.
 
+![image](https://github.com/user-attachments/assets/6a8b0be1-256f-4108-88eb-1c260d8b60e8)
+
+
++ Layout:
+  
 #### 4.3.7 LINHAS_ATINGIDA_META
++ Descrição: Estatística da quantidade total de ônibus em circulação na data/hora de geração dos dados.
++ Path: TOTAL_ONIBUS_GERAL/YYYY/MM/DD/HH onde YYYY: ano MM: Mês DD: Dia e HH: Hora - São referentes a data/hora processada.
 
+![image](https://github.com/user-attachments/assets/6fc98a56-47e9-405f-a507-de142d462ab1)
+
+
++ Layout:
+  
 #### 4.3.8 TOTAL_LINHAS_ATINGIDA_META
++ Descrição: Estatística da quantidade total de ônibus em circulação na data/hora de geração dos dados.
++ Path: TOTAL_ONIBUS_GERAL/YYYY/MM/DD/HH onde YYYY: ano MM: Mês DD: Dia e HH: Hora - São referentes a data/hora processada.
 
+![image](https://github.com/user-attachments/assets/8f15a973-ffa0-4649-ba6b-38c748baa632)
+
+
++ Layout:
+  
 ### 4.4. Tabelas PostgreSql
 
 

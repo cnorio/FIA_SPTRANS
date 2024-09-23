@@ -33,7 +33,8 @@ A arquitetura da solução é um pipeline que envolverá os seguintes processos:
 + Transformação: processo responsável por normalizar, enriquecer, aplicar regras de negócio nos dados ingeridos e envio dessas informações para armazenamento.
 + Visualização: processo responsável por exibir em dashboard as informações armazenadas que foram geradas a partir das regras de negócio.
 
-![Arquitetura_20240923](https://github.com/user-attachments/assets/ec532abb-e4b3-4953-b8d5-4c2337944fcc)
+![Arquitetura_20240923_02](https://github.com/user-attachments/assets/78b196cf-2f0a-4fba-9ef2-49f15c2b3369)
+
 
 O armazenamento será feito através de um Data Lake, com uma estrutura medalhão de 3 camadas:
 + bronze: armazenamento dos dados obtidos dos acessos a API Posicao da SPTrans, sem nenhuma transformação.

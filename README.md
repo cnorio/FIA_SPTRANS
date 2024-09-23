@@ -122,8 +122,8 @@ Esses programas Python foram escritos a partir dos Jupiter Notebooks abaixo, que
 #### 3.2.1 Programa SPTRANS_Transf_Prata_Posicao_Parquet_Vx.x.py
 + Descrição: Programa Python que irá transformar os arquivos em JSON da camada bronze em um formato de tabela, selecionando as colunas de interesse e armazenando-as em arquivos com formato Parquet na camada prata. Os arquivos processados são referentes a uma determinada hora, anteriores a hora atual.
 + Execução: spark-submit SPTRANS_Transf_Prata_Posicao_Parquet_Vx.x.py <horas anteriores a atual>  onde: <horas anteriores a atual>: a hora a ser processada é a hora atual menos a quantidade especificada nesse parâmetro.
-+ Entrada: Arquivos em formato JSON que se encontram na camada bronze no path: API_SPTRANS_POSICAO_OK/YYYY/MM/DD/HH onde HH é a hora a ser processada
-+ Saída: Arquivos em formato Parquet, com os dados dos ônibus em formato de tabela, que ficarão armazenadas na camada prata.
++ Entrada: Arquivos em formato JSON que se encontram na camada bronze no path: API_SPTRANS_POSICAO_OK/YYYY/MM/DD/HH onde HH é a hora a ser processada. Ver Metadados item 4.1.1
++ Saída: Arquivos em formato Parquet, com os dados dos ônibus retornados pela API Posicao em formato de tabela, armazenados na camada prata.
 + ----Bucket: prata
 + ----Path: POSICAO_PARQUET/YYYY/MM/DD/HH onde YYYY: ano MM: Mês DD: Dia e HH: Hora - São referentes a data/hora processada
 ![image](https://github.com/user-attachments/assets/a95635f4-241e-4984-981b-6fde70934e5a)  
@@ -183,7 +183,7 @@ Os gráficos exibidos no dashboard do Grafana são baseados nos dados das tabela
 ### 4.1. Camada Bronze
 
 #### 4.1.1. API_SPTRANS_POSICAO_OK
-
++ Descrição: Arquivos com os dados dos ônibus retornados pela API Posicao em formato de Json, sem nenhum tratamento.
 + Path: API_SPTRANS_POSICAO_OK/YYYY/MM/DD/HH
 + Nomenclatura dos arquivos: YYYYMMDD_HH_\<nome gerado internamente pelo NIFI\>.json
   ![image](https://github.com/user-attachments/assets/2dcc1967-f889-4b43-9830-51232e243fd3)
@@ -209,7 +209,7 @@ Os gráficos exibidos no dashboard do Grafana são baseados nos dados das tabela
 ### 4.2. Camada Prata
 
 #### 4.2.1. POSICAO_PARQUET
-
++ Descrição: Arquivos em formato Parquet, com os dados retornados pela API Posicao selecionados e normalizados em formato de tabela.
 + Path: POSICAO_PARQUET/YYYY/MM/DD/HH onde YYYY: ano MM: Mês DD: Dia e HH: Hora - São referentes a data/hora processada
 
 ![image](https://github.com/user-attachments/assets/a95635f4-241e-4984-981b-6fde70934e5a)
@@ -233,13 +233,39 @@ Os gráficos exibidos no dashboard do Grafana são baseados nos dados das tabela
 ### 4.3. Camada Ouro
 
 #### 4.3.1 MEDIA_ONIBUS_POR_LINHA
++ Descrição: Estatística da quantidade média de ônibus em circulação por hora por linha.
++ Path: MEDIA_ONIBUS_POR_LINHA/YYYY/MM/DD/HH onde YYYY: ano MM: Mês DD: Dia e HH: Hora - São referentes a data/hora processada.
+  
+![image](https://github.com/user-attachments/assets/1467c349-8c34-4cbd-b05a-ebae2d032afb)
+
++ Layout:
 
 #### 4.3.2 TOTAL_ONIBUS_POR_LINHA
++ Descrição: Estatística da quantidade total de ônibus por linha em circulação na data/hora de geração dos dados.
++ Path: TOTAL_ONIBUS_POR_LINHA/YYYY/MM/DD/HH onde YYYY: ano MM: Mês DD: Dia e HH: Hora - São referentes a data/hora processada.
+  
+![image](https://github.com/user-attachments/assets/3703051f-7ff6-4046-9e8b-5b00db36ded1)
+
++ Layout:
+
 
 #### 4.3.3 MEDIA_ONIBUS_GERAL
++ Descrição: Estatística da quantidade média de ônibus em circulação por hora.
++ Path: MEDIAL_ONIBUS_GERAL/YYYY/MM/DD/HH onde YYYY: ano MM: Mês DD: Dia e HH: Hora - São referentes a data/hora processada.
+
+![image](https://github.com/user-attachments/assets/d728e524-58a7-4736-a067-08011cd72e22)
+
++ Layout:
+
 
 #### 4.3.4 TOTAL_ONIBUS_GERAL
++ Descrição: Estatística da quantidade total de ônibus em circulação na data/hora de geração dos dados.
++ Path: TOTAL_ONIBUS_GERAL/YYYY/MM/DD/HH onde YYYY: ano MM: Mês DD: Dia e HH: Hora - São referentes a data/hora processada.
 
+![image](https://github.com/user-attachments/assets/e4b28329-e0bf-47bd-8137-39f19d012cfc)
+
++ Layout:
+  
 #### 4.3.5 LINHAS_ABAIXO_META
 
 #### 4.3.6 TOTAL_LINHAS_ABAIXO_META

@@ -61,12 +61,12 @@ O processamento no NiFi é composto com os seguintes processadores:
 
 Seguem abaixo os dados das API:
 + API: Autorizar
-  Método: Post
-  URL: http://api.olhovivo.sptrans.com.br/v2.1/Login/Autenticar?token=<token>
+  ++Método: Post
+  ++URL: http://api.olhovivo.sptrans.com.br/v2.1/Login/Autenticar?token=<token>
 
 + API: Posicao
-  Método: Get
-  URL: http://api.olhovivo.sptrans.com.br/v2.1/Posicao
+  ++Método: Get
+  ++URL: http://api.olhovivo.sptrans.com.br/v2.1/Posicao
 
 #### 3.1.2. Armazenamento Camada Bronze
 O armazenamento na camada bronze é feito no Minio:

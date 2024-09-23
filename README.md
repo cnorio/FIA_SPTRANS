@@ -138,8 +138,8 @@ Esses programas Python foram escritos a partir dos Jupiter Notebooks abaixo, que
 + Saída: Arquivos em formato Parquet, com as estatística das linhas que atingiram ou não a meta estipulada de quantidade de ônibus na hora a ser processada.
 
 #### 3.2.4 Scheduler de execução
-Os programas SPTRANS_Transf_Prata_Posicao_Parquet_Vx.y.py e SPTRANS_Transf_Ouro_Posicao_Parquet_Vx.y.py são executados através da crontab com frequência igual ou menor a 5 minutos.
-O programa SPTRANS_Transf_Ouro_Meta_Onibus_Vx.y.py é executado também pela crontab com frequência horária, visto que a validação com a tabela meta_onibus_por_linha precisa ser feito com a média horária.
++ Os programas SPTRANS_Transf_Prata_Posicao_Parquet_Vx.y.py e SPTRANS_Transf_Ouro_Posicao_Parquet_Vx.y.py são executados através da crontab com frequência igual ou menor a 5 minutos.
++ O programa SPTRANS_Transf_Ouro_Meta_Onibus_Vx.y.py é executado também pela crontab com frequência horária, visto que a validação com a tabela meta_onibus_por_linha precisa ser feito com a média horária.
 
 
 ### 3.3. Visualização - Grafana

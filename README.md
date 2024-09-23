@@ -108,10 +108,10 @@ Essas informações são relativas a data/hora de recepção dos dados da API.
 
 ### 3.2. Processamento - SPARK
 
-Os dados recebidos na camada bronze são processados no SPARK através dos 3 programas Python abaixo:
-+ SPTRANS_Transf_Prata_Posicao_Parquet_Vx.x.py: programa Python que irá transformar os JSON da camada bronze em um formato de tabela, selecionando as colunas de interesse e armazenando-as em arquivos com formato Parquet na camada prata.
-+ SPTRANS_Transf_Ouro_Posicao_Parquet_Vx.y.py: programa Python que, a partir das informações da camada prata, irá gerar as estatísticas de quantidade de ônibus por linha e armazená-las em arquivos em formato Parquet na camada ouro.
-+ SPTRANS_Transf_Ouro_Meta_Onibus_Vx.y.py:programa Python que, a partir das informações estatísticas da camada ouro e da tabela com a meta de quantidade de ônbius por linha (tabela armazenada no PostgreSQL), irá gerar as listas de linhas que atingiram ou não a meta estipulada.
+Os dados recebidos na camada bronze são processados no SPARK através dos 3 programas Python abaixo, os quais geraram as informações para as camadas prata e ouro:
++ SPTRANS_Transf_Prata_Posicao_Parquet_Vx.x.py
++ SPTRANS_Transf_Ouro_Posicao_Parquet_Vx.y.py:
++ SPTRANS_Transf_Ouro_Meta_Onibus_Vx.y.pyestipulada.
 
 Esses programas Python foram escritos a partir dos Jupiter Notebooks abaixo, que são mais facilmente desenvolvidos, testados e depurados:
 + Transf_Prata_Posicao_Parquet_Vx.y.ipynb => SPTRANS_Transf_Prata_Posicao_Parquet_Vx.y.py

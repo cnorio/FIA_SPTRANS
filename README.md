@@ -439,5 +439,88 @@ Os gráficos exibidos no dashboard do Grafana são baseados nos dados das tabela
 + ----meta_qtde_onibus:   int8  : meta da quantidade de ônibus da linha
 
   
+#### 4.4.2. Tabela media_onibus_por_linha
++ Schema: sptrans
++ Descrição: tabela com a média horária de ônibus por linha referente a uma data/hora
++ Layout:
++ ----data_ref:      text  : data de referência do cálculo da média
++ ----hora_id_ref:   text  : hora de referência do cálculo da média
++ ----id_linha:      int8    : código interno da linha
++ ----sentido_linha: int8    : sentido de operação da linha (1 do Term Principal para o Secundário - 2 do Term Secundário para o Principal)
++ ----let_cod_linha: text  : código da linha no letreiro do ônibus    
++ ----let_destino:   text  : letreiro de destino da linha
++ ----let_origem:    text  : letreiro de origem da linha
++ ----qtde_onibus:   int8  : quantidade média de ônibus da linha
 
+#### 4.4.3. Tabela media_onibus_geral
++ Schema: sptrans
++ Descrição:  tabela com a média horária geral de ônibus circulando em uma data/hora
++ Layout:
++ ----data_ref:      text  : data de referência do cálculo da média
++ ----hora_id_ref:   text  : hora de referência do cálculo da média
++ ----qtde_onibus:   int8  : quantidade média geral de ônibus
 
+#### 4.4.4. Tabela total_onibus_por_linha
++ Schema: sptrans
++ Descrição: tabela com o total de ônibus por linha circulando na data/hora em que foram obtidas as informacões através da  API Posicao
++ Layout:
++ ----data_ref:      text  : data de referência da geração dos dados
++ ----hora_ref:   text  : hora de referência da geração dos dados
++ ----id_linha:      int8    : código interno da linha
++ ----sentido_linha: int8    : sentido de operação da linha (1 do Term Principal para o Secundário - 2 do Term Secundário para o Principal)
++ ----let_cod_linha: text  : código da linha no letreiro do ônibus    
++ ----let_destino:   text  : letreiro de destino da linha
++ ----let_origem:    text  : letreiro de origem da linha
++ ----qtde_onibus:   int8  : quantidade total de ônibus da linha
+
+#### 4.4.5. Tabela total_onibus_geral
++ Schema: sptrans
++ Descrição:  tabela com o total de ônibus circulando na data/hora em que foram obtidas as informações através da  API Posicao
++ Layout:
++ ----data_ref:      text  : data de referência do cálculo do total
++ ----hora_id_ref:   text  : hora de referência do cálculo do total
++ ----qtde_onibus:   int8  : quantidade total de ônibus
+
+#### 4.4.6. Tabela linhas_atingida_meta
++ Schema: sptrans
++ Descrição: tabela com a lista das linhas de ônibus que atingiram a meta da média de quantidade de ônibus circulando em uma data/hora.
++ Layout:
++ ----data_ref:      text  : data de referência do cálculo da média
++ ----hora_id_ref:   text  : hora de referência do cálculo da média
++ ----id_linha:      int8    : código interno da linha
++ ----sentido_linha: int8    : sentido de operação da linha (1 do Term Principal para o Secundário - 2 do Term Secundário para o Principal)
++ ----let_cod_linha: text  : código da linha no letreiro do ônibus    
++ ----let_destino:   text  : letreiro de destino da linha
++ ----let_origem:    text  : letreiro de origem da linha
++ ----meta_qtde_onibus:   int8  : meta da quantidade de ônibus da linha
++ ----avg_qtde_onibus:   int8  : média da quantidade de ônibus da linha
+  
+#### 4.4.7. Tabela total_linhas_atingida_meta
++ Schema: sptrans
++ Descrição:   tabela com o total de linhas de ônibus que atingiram a meta da média de quantidade de ônibus circulando em uma data/hora.
++ Layout:
++ ----data_ref:      text  : data de referência do cálculo do total
++ ----hora_id_ref:   text  : hora de referência do cálculo do total
++ ----qtde_linhas:   int8  : quantidade total de linhas
+
+#### 4.4.8. Tabela linhas_abaixo_meta
++ Schema: sptrans
++ Descrição: tabela com a lista das linhas de ônibus que ficaram abaixo da meta da média de quantidade de ônibus circulando em uma data/hora.
++ Layout:
++ ----data_ref:      text  : data de referência do cálculo da média
++ ----hora_id_ref:   text  : hora de referência do cálculo da média
++ ----id_linha:      int8    : código interno da linha
++ ----sentido_linha: int8    : sentido de operação da linha (1 do Term Principal para o Secundário - 2 do Term Secundário para o Principal)
++ ----let_cod_linha: text  : código da linha no letreiro do ônibus    
++ ----let_destino:   text  : letreiro de destino da linha
++ ----let_origem:    text  : letreiro de origem da linha
++ ----meta_qtde_onibus:   int8  : meta da quantidade de ônibus da linha
++ ----avg_qtde_onibus:   int8  : média da quantidade de ônibus da linha
+  
+#### 4.4.9. Tabela total_linhas_abaixo_meta
++ Schema: sptrans
++ Descrição:   tabela com o total de linhas de ônibus que ficaram abaixo da meta da média de quantidade de ônibus circulando em uma data/hora.
++ Layout:
++ ----data_ref:      text  : data de referência do cálculo do total
++ ----hora_id_ref:   text  : hora de referência do cálculo do total
++ ----qtde_linhas:   int8  : quantidade total de linhas

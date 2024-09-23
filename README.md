@@ -126,9 +126,11 @@ Esses programas Python foram escritos a partir dos Jupiter Notebooks abaixo, que
 + Saída: Arquivos em formato Parquet, com os dados dos ônibus retornados pela API Posicao em formato de tabela, armazenados na camada prata.
 + ----Bucket: prata
 + ----Path: POSICAO_PARQUET/YYYY/MM/DD/HH onde YYYY: ano MM: Mês DD: Dia e HH: Hora - São referentes a data/hora processada
-![image](https://github.com/user-attachments/assets/a95635f4-241e-4984-981b-6fde70934e5a)  
 + ----Layout: Ver Metadados item 4.2.1
+  
+![image](https://github.com/user-attachments/assets/a95635f4-241e-4984-981b-6fde70934e5a)  
 
+![image](https://github.com/user-attachments/assets/c270a958-2ec5-4331-817b-7b3f1e3e1f3c)
 
 #### 3.2.2 Programa SPTRANS_Transf_Ouro_Posicao_Parquet_Vx.y.py
 + Descrição: programa Python que, a partir das informações da camada prata, irá gerar as estatísticas de quantidade de ônibus por linha e armazená-las em arquivos em formato Parquet na camada ouro. Os arquivos processados são referentes a uma determinada hora, anteriores a hora atual.
@@ -138,34 +140,39 @@ Esses programas Python foram escritos a partir dos Jupiter Notebooks abaixo, que
 + ---- Saída 1: Estatística da média da quantidade de ônibus por hora por linha
 + --------Bucket: ouro
 + --------Path: MEDIA_ONIBUS_POR_LINHA/YYYY/MM/DD/HH onde YYYY: ano MM: Mês DD: Dia e HH: Hora - São referentes a data/hora processada
++ --------Layout: Ver Metadados item 4.3.1
   
 ![image](https://github.com/user-attachments/assets/1467c349-8c34-4cbd-b05a-ebae2d032afb)
 
-+ --------Layout: Ver Metadados item 4.3.1
+![image](https://github.com/user-attachments/assets/dcba776d-b102-4bae-9ad7-626dc0e56589)
+
 
 + ---- Saída 2: Estatística da média da quantidade de ônibus por hora
 + --------Bucket: ouro
 + --------Path: MEDIA_ONIBUS_GERAL/YYYY/MM/DD/HH onde YYYY: ano MM: Mês DD: Dia e HH: Hora - São referentes a data/hora processada
++ --------Layout: Ver Metadados item 4.3.2
   
 ![image](https://github.com/user-attachments/assets/d728e524-58a7-4736-a067-08011cd72e22)
 
-+ --------Layout: Ver Metadados item 4.3.2
+![image](https://github.com/user-attachments/assets/4591c170-d8ae-46a6-bdcf-399449ab53f0)
   
 + ---- Saída 3: Estatística da quantidade total de ônibus por linha na data/hora de geração dos dados
 + --------Bucket: ouro
 + --------Path: TOTAL_ONIBUS_POR_LINHA/YYYY/MM/DD/HH onde YYYY: ano MM: Mês DD: Dia e HH: Hora - São referentes a data/hora processada
++ --------Layout: Ver Metadados item 4.3.3
   
 ![image](https://github.com/user-attachments/assets/3703051f-7ff6-4046-9e8b-5b00db36ded1)
 
-+ --------Layout: Ver Metadados item 4.3.3
+![image](https://github.com/user-attachments/assets/29f295e8-73f9-4f99-8f70-ada6e67895e1)
 
 + ---- Saída 4: Estatística da quantidade total de ônibus por data/hora de geração dos dados
 + --------Bucket: ouro
 + --------Path: TOTAL_ONIBUS_GERAL/YYYY/MM/DD/HH onde YYYY: ano MM: Mês DD: Dia e HH: Hora - São referentes a data/hora processada
++ --------Layout: Ver Metadados item 4.3.4
   
 ![image](https://github.com/user-attachments/assets/e4b28329-e0bf-47bd-8137-39f19d012cfc)  
 
-+ --------Layout: Ver Metadados item 4.3.4
+![image](https://github.com/user-attachments/assets/640ad75f-22be-4cf7-ad83-e7ca21dbcd52)
 
   
 #### 3.2.3 Programa SPTRANS_Transf_Ouro_Meta_Onibus_Vx.y.py
@@ -178,34 +185,38 @@ Esses programas Python foram escritos a partir dos Jupiter Notebooks abaixo, que
 + ---- Saída 1: Lista das linhas de ônibus cujas médias horárias ficaram abaixo da meta da quantidade de ônibus.
 + --------Bucket: ouro
 + --------Path: LINHAS_ABAIXO_META/YYYY/MM/DD/HH onde YYYY: ano MM: Mês DD: Dia e HH: Hora - São referentes a data/hora processada
++ --------Layout: Ver Metadados item 4.3.5
 
 ![image](https://github.com/user-attachments/assets/290f9739-f7e4-46f4-a8d4-b0e3c68dbe45)
 
-+ --------Layout: Ver Metadados item 4.3.5
+![image](https://github.com/user-attachments/assets/695aa1a1-8c7c-4c19-b339-cf0b3ca90055)
 
 + ---- Saída 2: Estatística da quantidade total de linhas de ônibus cujas médias horárias ficaram abaixo da meta da quantidade de ônibus em uma data/hora.
 + --------Bucket: ouro
 + --------Path: TOTAL_LINHAS_ABAIXO_META/YYYY/MM/DD/HH onde YYYY: ano MM: Mês DD: Dia e HH: Hora - São referentes a data/hora processada
++ --------Layout: Ver Metadados item 4.3.6
 
 ![image](https://github.com/user-attachments/assets/6a8b0be1-256f-4108-88eb-1c260d8b60e8)
 
-+ --------Layout: Ver Metadados item 4.3.6
+![image](https://github.com/user-attachments/assets/160c5fa3-a767-4c35-8a54-bf0487c21178)
 
 + ---- Saída 3: Lista das linhas de ônibus cujas médias horárias atingiram a meta da quantidade de ônibus.
 + --------Bucket: ouro
 + --------Path: LINHAS_ATINGIDA_META/YYYY/MM/DD/HH onde YYYY: ano MM: Mês DD: Dia e HH: Hora - São referentes a data/hora processada
++ --------Layout: Ver Metadados item 4.3.7
   
 ![image](https://github.com/user-attachments/assets/6fc98a56-47e9-405f-a507-de142d462ab1)
 
-+ --------Layout: Ver Metadados item 4.3.7
+![image](https://github.com/user-attachments/assets/78780098-0ab5-451b-be6d-6d675baf9f90)
 
 + ---- Saída 4: Estatística da quantidade total de linhas de ônibus cujas médias horárias atingiram a meta da quantidade de ônibus em uma data/hora.
 + --------Bucket: ouro
 + --------Path: TOTAL_LINHAS_ATINGIDA_META/YYYY/MM/DD/HH onde YYYY: ano MM: Mês DD: Dia e HH: Hora - São referentes a data/hora processada
++ --------Layout: Ver Metadados item 4.3.8
 
 ![image](https://github.com/user-attachments/assets/8f15a973-ffa0-4649-ba6b-38c748baa632)
 
-+ --------Layout: Ver Metadados item 4.3.8
+![image](https://github.com/user-attachments/assets/d954b10d-e093-4097-a117-796a4392d213)
 
 
 #### 3.2.4 Scheduler de execução

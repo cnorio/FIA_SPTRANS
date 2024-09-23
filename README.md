@@ -90,12 +90,18 @@ Abaixo a descrição dos campos em JSON retornados pela API Posicao
 #### 3.1.3. Armazenamento Camada Bronze
 O armazenamento na camada bronze é feito no Minio:
 + Bucket: bronze
+
 + Arquivos com recepção OK:
-Path: API_SPTRANS_POSICAO_OK/YYYY/MM/DD/HH
-Nomenclatura dos arquivos: YYYYMMDD_HH_<nome gerado internamente pelo NIFI)
++ ----Path: API_SPTRANS_POSICAO_OK/YYYY/MM/DD/HH
++ ----Nomenclatura dos arquivos: YYYYMMDD_HH_\<nome gerado internamente pelo NIFI\>.json
+  ![image](https://github.com/user-attachments/assets/2dcc1967-f889-4b43-9830-51232e243fd3)
+
+
 + Arquivos com erro:
-Path: API_SPTRANS_POSICAO_NOK/YYYY/MM/DD/HH
-Nomenclatura dos arquivos: YYYYMMDD_HH_<nome gerado internamente pelo NIFI)
++ ----Path: API_SPTRANS_POSICAO_NOK/YYYYMMDD_HH
++ ----Nomenclatura dos arquivos: YYYYMMDD_HH_\<nome gerado internamente pelo NIFI\>.NOK
+  ![image](https://github.com/user-attachments/assets/77f894cd-47fa-452a-8414-cec850be4ac5)
+
 
 Onde: YYYY: ano com 4 dígitos MM: Mês com dois dígitos  DD: dia com dois dígitos  HH: hora com dois dígitos
 Essas informações são relativas a data/hora de recepção dos dados da API.

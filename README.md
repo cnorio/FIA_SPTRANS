@@ -239,6 +239,16 @@ Os gráficos exibidos no dashboard do Grafana são baseados nos dados das tabela
 ![image](https://github.com/user-attachments/assets/1467c349-8c34-4cbd-b05a-ebae2d032afb)
 
 + Layout:
++ ----data_ref:      string  : data de referencia do cálculo da média
++ ----hora_id_ref:   string  : hora de referência do cálculo da média
++ ----id_linha:      long    : código interno da linha
++ ----sentido_linha: long    : sentido de operação da linha (1 do Term Principal para o Secundário - 2 do Term Secundário para o Principal)
++ ----let_cod_linha: string  : código da linha no letreiro do ônibus    
++ ----let_destino:   string  : letreiro de destino da linha
++ ----let_origem:    string  : letreiro de origem da linha
++ ----qtde_onibus:   long    : quantidade média de ônibus da linha
+
+![image](https://github.com/user-attachments/assets/dcba776d-b102-4bae-9ad7-626dc0e56589)
 
 #### 4.3.2 TOTAL_ONIBUS_POR_LINHA
 + Descrição: Estatística da quantidade total de ônibus por linha em circulação na data/hora de geração dos dados.
@@ -247,6 +257,16 @@ Os gráficos exibidos no dashboard do Grafana são baseados nos dados das tabela
 ![image](https://github.com/user-attachments/assets/3703051f-7ff6-4046-9e8b-5b00db36ded1)
 
 + Layout:
++ ----data_ref:      string  : data de referencia da geração dos dados
++ ----hora_ref:  string      : hora de referência da geração dos dados
++ ----id_linha:      long    : código interno da linha
++ ----sentido_linha: long    : sentido de operação da linha (1 do Term Principal para o Secundário - 2 do Term Secundário para o Principal)
++ ----let_cod_linha: string  : código da linha no letreiro do ônibus    
++ ----let_destino:   string  : letreiro de destino da linha
++ ----let_origem:    string  : letreiro de origem da linha
++ ----qtde_onibus:   long    : quantidade total de ônibus da linha
+
+![image](https://github.com/user-attachments/assets/29f295e8-73f9-4f99-8f70-ada6e67895e1)
 
 
 #### 4.3.3 MEDIA_ONIBUS_GERAL
@@ -256,7 +276,11 @@ Os gráficos exibidos no dashboard do Grafana são baseados nos dados das tabela
 ![image](https://github.com/user-attachments/assets/d728e524-58a7-4736-a067-08011cd72e22)
 
 + Layout:
++ ----data_ref:      string  : data de referencia do cálculo da média
++ ----hora_id_ref:   string  : hora de referência do cálculo da média
++ ----qtde_onibus:   long    : quantidade média de ônibus
 
+![image](https://github.com/user-attachments/assets/2f160cf5-c9de-41e0-a793-2426047331a4)
 
 #### 4.3.4 TOTAL_ONIBUS_GERAL
 + Descrição: Estatística da quantidade total de ônibus em circulação na data/hora de geração dos dados.
@@ -265,6 +289,12 @@ Os gráficos exibidos no dashboard do Grafana são baseados nos dados das tabela
 ![image](https://github.com/user-attachments/assets/e4b28329-e0bf-47bd-8137-39f19d012cfc)
 
 + Layout:
++ ----data_ref:      string  : data de referencia da geração dos dados
++ ----hora_ref:  string      : hora de referência da geração dos dados
++ ----qtde_onibus:   long    : quantidade total de ônibus em circulação
+
+![image](https://github.com/user-attachments/assets/640ad75f-22be-4cf7-ad83-e7ca21dbcd52)
+
   
 #### 4.3.5 LINHAS_ABAIXO_META
 + Descrição: Lista das linhas de ônibus cujas médias horárias ficaram abaixo da meta da quantidade de ônibus.

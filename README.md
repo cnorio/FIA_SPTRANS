@@ -147,9 +147,29 @@ Esses programas Python foram escritos a partir dos Jupiter Notebooks abaixo, que
 #### 3.2.2 Programa SPTRANS_Transf_Ouro_Posicao_Parquet_Vx.y.py
 + Descrição: programa Python que, a partir das informações da camada prata, irá gerar as estatísticas de quantidade de ônibus por linha e armazená-las em arquivos em formato Parquet na camada ouro. Os arquivos processados são referentes a uma determinada hora, anteriores a hora atual.
 + Execução: spark-submit SPTRANS_Transf_Ouro_Posicao_Parquet_Vx.y.py <horas anteriores a atual>  onde: <horas anteriores a atual>: a hora a ser processada é a hora atual menos a quantidade especificada nesse parâmetro.
-+ Entrada: Arquivos em formato Parquet que se encontram na camada prata no path: POSICAO_PARQUET/YYYY/MM/DD/HH onde HH é a hora a ser processada
++ Entrada: Arquivos em formato Parquet que se encontram na camada prata no path: POSICAO_PARQUET/YYYY/MM/DD/HH onde HH é a hora a ser processada (ver saída do item 3.2.1)
 + Saída: Arquivos em formato Parquet, com as estatística de quantidade de ônibus, que ficarão armazenadas na camada ouro.
++ ---- Saída 1: Estatística da média da quantidade de ônibus por hora por linha
++ --------Bucket: ouro
++ --------Path: MEDIA_ONIBUS_POR_LINHA/YYYY/MM/DD/HH onde YYYY: ano MM: Mês DD: Dia e HH: Hora - São referentes a data/hora processada
+  
+![image](https://github.com/user-attachments/assets/1467c349-8c34-4cbd-b05a-ebae2d032afb)
 
++ --------Layout:
++ ------------campo1:
++ ------------campo2:
+
++ ---- Saída 2: Estatística da quantidade total de ônibus por linha na data/hora de geração dos dados
++ --------Bucket: ouro
++ --------Path: TOTAL_ONIBUS_POR_LINHA/YYYY/MM/DD/HH onde YYYY: ano MM: Mês DD: Dia e HH: Hora - São referentes a data/hora processada
+  
+![image](https://github.com/user-attachments/assets/3703051f-7ff6-4046-9e8b-5b00db36ded1)
+
++ --------Layout:
++ ------------campo1:
++ ------------campo2:
+
+  
 #### 3.2.3 Programa SPTRANS_Transf_Ouro_Meta_Onibus_Vx.y.py
 + Descrição: programa Python que, a partir das informações estatísticas da camada ouro e da tabela com a meta de quantidade de ônbius por linha (tabela armazenada no PostgreSQL), irá gerar as listas de linhas que atingiram ou não a meta estipulada. Os arquivos processados são referentes a uma determinada hora, anteriores a hora atual.
 + Execução: spark-submit SPTRANS_Transf_Ouro_Meta_Onibus_Vx.y.py <horas anteriores a atual>  onde: <horas anteriores a atual>: a hora a ser processada é a hora atual menos a quantidade especificada nesse parâmetro.

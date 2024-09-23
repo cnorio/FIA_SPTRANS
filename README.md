@@ -1,7 +1,7 @@
 # Projeto Desafio do Curso de Pos Graduação e MBA em Big Data - Data Engineering
 # SPTRANS
 
-## Membros
+## Equipe de Alunos
 + Celso Martins
 + Celso Norio Okuyama
 + Gislaine Nisi
@@ -17,7 +17,7 @@
 + Dra Alessandra de Ávila Montini
 + Dr Adolpho Walter Pimazoni Canton
 
-## Objetivo
+## 1. Objetivo
 O objetivo deste projeto é a partir do acesso a API Posicao disponibilizada pela SPTRANS, para consultar informações sobre ônibus em circulação na cidade de São Paulo, gerar indicadores para medir a qualidade do serviço prestado.
 
 Os principais indicadores a serem gerados são:
@@ -26,7 +26,7 @@ Os principais indicadores a serem gerados são:
 + Lista horária com as linhas cuja quantidade de ônibus em circulação atingiu uma meta acordada.
 + Lista horária  com as linhas cuja quantidade de ônibus em circulação ficaram abaixo de uma meta acordada.
 
-## Arquitetura da solução
+## 2. Arquitetura da solução
 
 A arquitetura da solução é um pipeline que envolverá os seguintes processos:
 + Ingestão: processo responsável pelo acesso a API e envio dessas informações para armazenamento.
@@ -43,5 +43,12 @@ Abaixo seguem as ferramentas que serão utilizadas:
 + Transformação: Spark / Hive
 + Visualização: Grafana / PostgreSql
 + Armazenamento: Minio
-  
+
+## 3. Detalhes da Solução
+
+### 3.1. Ingestão - NiFi
+
+![image](https://github.com/user-attachments/assets/4d867816-25a6-44e7-8ca4-7e00a441546c)
+
+
 

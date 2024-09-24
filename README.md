@@ -240,10 +240,10 @@ Esses programas Python foram escritos a partir dos Jupiter Notebooks abaixo, que
 Os gráficos exibidos no dashboard do Grafana são baseados nos dados das tabelas abaixo do PostgreSql:
 + sptrans.linhas_abaixo_meta (ver descrição no item 4.4.8)
 + sptrans.total_linhas_abaixo_meta (ver descrição no item 4.4.9)
-+ sptrans.total_onibus_por_linha (ver descrição no item 4.4.4)
 + sptrans.total_onibus_geral (ver descrição no item 4.4.5)
-+ sptrans.media_onibus_por_linha (ver descrição no item 4.4.2)
++ sptrans.total_onibus_por_linha (ver descrição no item 4.4.4)
 + sptrans.media_onibus_geral (ver descrição no item 4.3.3)
++ sptrans.media_onibus_por_linha (ver descrição no item 4.4.2)
   
 ![image](https://github.com/user-attachments/assets/5017dd7d-a086-48c5-a50f-2e0e919b9a0d)
 
